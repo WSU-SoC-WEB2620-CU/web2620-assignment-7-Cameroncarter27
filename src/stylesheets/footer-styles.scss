@@ -1,0 +1,41 @@
+footer{
+    background-color: black;
+    
+    & ul {
+        list-style-type: none;
+        padding-top: 0;
+
+        & li {
+            padding-bottom: .5rem;
+        }
+        & a {
+            color: $main-blue;
+            text-decoration: none;
+        }
+        
+    }
+    & h3 {
+        color: white;
+        text-align: center;
+        padding-bottom: 0;
+    }
+    
+    .columns {
+        display: flex;
+        flex-flow: row nowrap;
+        width: $main-width;
+        margin: $main-margin;
+        justify-content: center;
+
+        .col {
+            display: flex;
+            flex-flow: column nowrap;
+
+            & .fa-cube{
+                margin-right: .25rem;
+            }
+            
+        }
+    }
+   
+}

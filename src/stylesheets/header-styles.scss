@@ -1,0 +1,104 @@
+@mixin jumbo-styles {
+    width: $main-width;
+    margin: 5rem auto;
+    color: $basic-color;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+@function calc-background-color($num, $color1, $color2) {
+    @return mix($color1, $color2, $num*20%);
+}
+$num: 2;
+// Jumbotron Styles
+#jumbotron{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: calc-background-color($num, blue, white);
+    color: $basic-color;
+
+    nav {
+        width: $main-width;
+        margin: $main-margin;
+        padding: .5rem;
+    }
+    & ul {
+        display: flex;
+        flex-flow: row nowrap;
+        list-style-type: none;
+        align-items:flex-start
+    }
+    & ul li {
+        border-bottom: 1px solid black;
+        padding-bottom: 1rem;
+    }
+    & ul li:hover{
+        border-bottom: 1px solid $basic-color;
+    }
+    & ul .fa-lemon{
+        height: 5rem;
+        width: 5rem;
+    }
+    & ul :nth-child(1),
+    & ul :nth-child(1):hover{
+        flex: 1;
+        border-bottom: none;
+    }
+    & ul :nth-child(2),
+    & ul :nth-child(2):hover{
+        border-bottom: 1px solid rgb(122, 0, 133);
+        padding-bottom: 1rem;
+    }
+    ul :nth-child(2) a,
+    ul :nth-child(2) a:hover {
+        color: blue;
+    }
+     
+    & ul a {
+        color: black;
+        text-decoration: none;
+        padding: 0 1rem;
+        
+    }
+    & ul a:hover{
+        color: $basic-color;
+    }
+   
+    & ul :nth-child(7){
+        border-bottom: 1px solid $basic-color;
+        border-radius: .5rem;
+        padding-bottom: 0;
+        margin-left: 1rem;
+    }
+    & ul button {
+        background-color: calc-background-color($num, blue, white);
+        border: 1px solid $basic-color;
+        padding: .5rem 1rem;
+        color: $basic-color;
+        border-radius: .5rem;
+    }
+    & ul button:hover{
+        border: 2px solid $basic-color;
+        color:rgb(232, 231, 231);
+    }
+
+
+    
+    .jumbo-content {
+        @include jumbo-styles;
+    }
+    .black-bar {
+        background-color: black;
+        color: $basic-color;
+        margin: 0;
+        text-align: center;
+
+        & span {
+            background-color: rgb(0, 173, 98);
+            padding: .25rem;
+            border-radius: .25rem;
+            margin: .25rem;
+        }
+    }
+    
+}

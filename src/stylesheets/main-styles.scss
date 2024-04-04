@@ -1,0 +1,104 @@
+$tile-list: 1 2 3 4 5 6 7 8 9 10 11 12;
+$tile-width: 20% 10% 100% 100% 100% 100% 100% 100% 100% 100% 100% 100%;
+
+
+@mixin tile-styles($tile-width) {
+    width: $tile-width;
+}
+
+main {
+    background-color: $main-gray;
+    
+    
+    .container {
+        width: $main-width;
+        margin: $main-margin;
+        padding: 5rem 0;
+
+
+        .cards{
+            display: flex;
+            flex-flow: row nowrap;
+            .card{
+                display: flex;
+                flex-flow: column nowrap;
+                padding: 1rem;
+                margin: .5rem;
+                background-color: $basic-color;
+                border-radius: .5rem;
+
+                &:hover {
+                    box-shadow: 3px 3px 5px 3px $shadow;
+                }
+                .icon{
+                    display: flex;
+                    justify-content: center;
+
+                    .fa-jedi-order,
+                    .fa-paw, .fa-meteor {
+                        height: 10rem;
+                        width: 10rem;
+                        
+                    }
+                }
+            }
+        }
+        .no-tile {
+            @include jumbo-styles;
+        }
+
+        .top-2 {
+            display: flex;
+            flex-flow: row nowrap;
+            .tile-1,
+            .tile-2{
+                background-color: $basic-color;
+                border-radius: .5rem;
+                padding: .5rem 1.5rem;
+                margin: 1rem;
+
+                & h1 {
+                font-weight: 700;
+                margin: .5rem 0;
+                }
+            }
+        }
+        .tile-3,
+        .tile-4,
+        .tile-5,
+        .tile-6,
+        .tile-7,
+        .tile-8,
+        .tile-9,
+        .tile-10,
+        .tile-11,
+        .tile-12 {
+            background-color: $basic-color;
+            border-radius: .5rem;
+            padding: .5rem 1.5rem;
+            margin: 1rem;
+
+            &:hover {
+                box-shadow: 3px 3px 5px 3px $shadow;
+            }
+
+            & h1 {
+            font-weight: 700;
+            margin: .5rem 0;
+            }
+
+            
+        }
+        img {
+            width: $img-width;
+        }
+        @each $tile in $tile-list {
+            $index: index($tile-list, $tile);
+        
+            &.tile-#{$tile} {
+              @include tile-styles(nth($tile-width, $index));
+            }
+        }
+        
+    }
+}
